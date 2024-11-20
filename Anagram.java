@@ -30,7 +30,41 @@ public class Anagram {
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
 		// Replace the following statement with your code
-		return false;
+		
+		str1 = preProcess(str1);
+		str2 = preProcess(str2);
+
+		// Different lengths can't be anagrams
+		if (str1.length() != str2.length()) {
+            return false; 
+        }
+
+		for (int i = 0; i < str1.length(); i++) {
+			char ch1 = str1.charAt(i);
+			int countCh1 = 0;
+			int countCh2 = 0;
+
+			// check how many times each Char is in the string 1
+			for (int j = 0; j < str1.length(); j++) {
+				if (ch1 == str1.charAt(j)) {
+					countCh1++;
+				}
+			}
+			// check how many times each Char is in the string 2
+			for (int g = 0; g < str2.length(); g++) {
+				if (ch1 == str2.charAt(g)) {
+					countCh2++;
+				}
+			}
+
+			// if a char count is different between the two string return false.
+			if (countCh1 != countCh2) {
+				return false;
+			}
+		}
+
+
+		return true;
 	}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
@@ -38,13 +72,35 @@ public class Anagram {
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	private static String preProcess(String str) {
 		// Replace the following statement with your code
-		return str;
+		
+		String newStr = "";
+		for (int i = 0; i < str.length(); i++) {
+			char ch = str.charAt(i);
+
+			if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
+				newStr += ch;
+			}
+		}
+		return newStr.toLowerCase();
 	} 
 	   
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 
 	public static String randomAnagram(String str) {
 		// Replace the following statement with your code
-		return str;
+		String newStr = "";
+		
+		while (!str.isEmpty()) {
+			// Generates random num (according to Index)
+			int randNum = (int)(Math.random() * str.length());
+			newStr += str.charAt(randNum);
+			if (randNum == str.length() - 1) {
+				// If it's the last character, no need for substring after randomIndex
+				str = str.substring(0, randNum);
+			} else {
+				// Otherwise, split the string into parts and remove the character
+				str = str.substring(0, randNum) + str.substring(randNum + 1);
+			}		}
+		return newStr;
 	}
 }
