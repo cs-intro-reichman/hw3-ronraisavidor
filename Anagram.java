@@ -75,7 +75,7 @@ public class Anagram {
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
 
-            if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
+            if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || (ch == ' ')) {
                 newStr += ch;
             }
         }
