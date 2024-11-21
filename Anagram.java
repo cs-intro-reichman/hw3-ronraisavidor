@@ -33,6 +33,9 @@ public class Anagram {
 		str1 = preProcess(str1);
 		str2 = preProcess(str2);
 
+		str1 = str1.replace(" ", "");
+    	str2 = str2.replace(" ", "");
+
 		// Different lengths can't be anagrams
 		if (str1.length() != str2.length()) {
             return false; 
@@ -75,7 +78,7 @@ public class Anagram {
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
 
-            if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
+            if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || (ch == ' ')) {
                 newStr += ch;
             }
         }
