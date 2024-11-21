@@ -10,17 +10,18 @@ public class LoanCalc {
         double rate = Double.parseDouble(args[1]);
         int n = Integer.parseInt(args[2]);
 
-        System.out.println("Loan = " + loan + ", interest rate = " + rate + "%, periods = " + n);
+		// Loan details
+		System.out.println("Loan = " + loan + ", interest rate = " + rate + "%25, periods = " + n);
+		System.out.println();
 
-        // Compute the periodical payment using brute force search
-        System.out.println("Periodical payment, using brute force: ");
-        System.out.println((int) bruteForceSolver(loan, rate, n, epsilon));
-        System.out.println("Number of iterations: " + iterationCounter);
-
-        // Compute the periodical payment using bisection search
-        System.out.println("Periodical payment, using bi-section search: ");
-        System.out.println((int) bisectionSolver(loan, rate, n, epsilon));
-        System.out.println("Number of iterations: " + iterationCounter);
+		// Compute the periodical payment using brute force search
+		System.out.println("Periodical payment, using brute force: " + (int) bruteForceSolver(loan, rate, n, epsilon));
+		System.out.println("number of iterations: " + iterationCounter);
+		System.out.println();
+		
+		// Compute the periodical payment using bisection search
+		System.out.println("Periodical payment, using bi-section search: " + (int) bisectionSolver(loan, rate, n, epsilon));
+		System.out.println("number of iterations: " + iterationCounter);
     }
 
     // Computes the ending balance of a loan, given the loan amount, annual interest rate,

@@ -6,7 +6,7 @@ public class Anagram {
 		System.out.println(isAnagram("William Shakespeare","I am a weakish speller")); // true
 		System.out.println(isAnagram("Madam Curie","Radium came")); // true
 		System.out.println(isAnagram("Tom Marvolo Riddle","I am Lord Voldemort")); // true
-
+		
 		// Tests the preProcess function.
 		System.out.println(preProcess("What? No way!!!"));
 		
@@ -75,7 +75,7 @@ public class Anagram {
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
 
-            if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || (ch == ' ')) {
+            if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
                 newStr += ch;
             }
         }
